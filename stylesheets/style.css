@@ -25,8 +25,9 @@ table{
     margin: 5px auto 0;
 }
 .weather{
+    float: left;
     background-color:#34495E;
-    width: 90%;
+    width: 50%;
     max-width: 700px;
     position: relative;
     margin: 20px;
@@ -71,4 +72,47 @@ table{
     font-weight:bold;
     text-align: left;
     padding-left: 10px;
+}
+.forecastDay{
+    color:#95a5a6;
+    text-align: center;
+    text-decoration: underline;
+}
+.minmaxTemp{
+    color: #BDC3C7;
+    text-align: right;
+}
+.minmaxTempValue{
+    color: white;
+    text-align: left;
+    font-weight:bold;
+    padding-left: 10px;
+}
+.sunrise{
+    color: #BDC3C7;
+    text-align: right;
+}
+.sunriseValue{
+    color: white;
+    text-align: left;
+    font-weight:bold;
+    padding-left: 10px;
+}
+.forecastWeather{
+    float: left;
+    background-color: #34495E;
+    margin: 20px;
+    width: 50%;
+    position: relative;
+    max-width: 700px;
+    max-height: 300px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+.carousel-size{
+    width: max-content;
+    position: relative;
+    margin: 5px auto 0;
+    text-align: center;
 }
