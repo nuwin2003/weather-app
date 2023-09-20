@@ -15,3 +15,51 @@ body{
     border-radius: 20px;
     padding: 40px 35px;
 }
+table{
+    width: max-content;
+    position: relative;
+    margin: 5px auto 0;
+}
+.weather{
+    background-color:#34495E;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+.temp{
+    text-align: center;
+    color: white;
+    font-size: 64px;
+    font-weight: bold;
+}
+.condition{
+    color: #BDC3C7;
+    text-align: right;
+}
+.conditionValue{
+    color: white;
+    font-weight:bold;
+    text-align: left;
+}
+.humidity{
+    color: #BDC3C7;
+    text-align: right;
+}
+.humidityValue{
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+.windSpeed{
+    color: #BDC3C7;
+    text-align: right;
+}
+.windSpeedValue{
+    color: white;
+    font-weight:bold;
+    text-align: left;
+}
