@@ -3,10 +3,14 @@
     padding: 0;
     font-family: 'Popins', sans-serif;
     box-sizing: border-box;
-
 }
 body{
     background-color: #DFE6E9;
+}
+.weatherwiseImg{
+    width: 140px;
+    height: 50px;
+    border-radius: 10%;
 }
 .d-flex{
     width: 90%;
@@ -23,15 +27,17 @@ table{
 .weather{
     background-color:#34495E;
     width: 90%;
-    max-width: 500px;
+    max-width: 700px;
     position: relative;
     margin: 20px;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
 }
+.location{
+    color: white;
+}
 .temp{
-    text-align: center;
     color: white;
     font-size: 64px;
     font-weight: bold;
@@ -44,6 +50,7 @@ table{
     color: white;
     font-weight:bold;
     text-align: left;
+    padding-left: 10px;
 }
 .humidity{
     color: #BDC3C7;
@@ -53,6 +60,7 @@ table{
     color: white;
     font-weight: bold;
     text-align: left;
+    padding-left: 10px;
 }
 .windSpeed{
     color: #BDC3C7;
@@ -62,4 +70,5 @@ table{
     color: white;
     font-weight:bold;
     text-align: left;
+    padding-left: 10px;
 }
