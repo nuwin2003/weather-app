@@ -73,8 +73,8 @@ table{
     text-align: left;
     padding-left: 10px;
 }
-.forecastDay{
-    color:#95a5a6;
+.forecastorpastDay{
+    color:#bdc3c7;
     text-align: center;
     text-decoration: underline;
 }
@@ -101,7 +101,19 @@ table{
 .forecastWeather{
     float: left;
     background-color: #34495E;
-    margin: 20px;
+    margin: 5px;
+    width: 50%;
+    position: relative;
+    max-width: 700px;
+    max-height: 300px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+.pastWeather{
+    float: left;
+    background-color: #34495E;
+    margin: 5px;
     width: 50%;
     position: relative;
     max-width: 700px;

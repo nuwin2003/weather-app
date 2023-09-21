@@ -81,12 +81,17 @@
     </div>
 
     <div class="forecastWeather">
-        <div id="carouselExample" class="carousel slide">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
             <div class="carousel-inner carousel-size">
               <div class="carousel-item active">
                 <table>
                     <tr>
-                        <td colspan="2"><h1 id="forecastDay1" class="forecastDay">2023/09/21</h1></td>
+                        <td colspan="2"><h1 id="forecastDay1" class="forecastorpastDay">2023/09/21</h1></td>
                     </tr>
                     <tr>
                         <td>
@@ -133,7 +138,7 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td colspan="2"><h1 id="forecastDay2" class="forecastDay">2023/09/22</h1></td>
+                        <td colspan="2"><h1 id="forecastDay2" class="forecastorpastDay">2023/09/22</h1></td>
                     </tr>
                     <tr>
                         <td>
@@ -180,7 +185,7 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td colspan="2"><h1 id="forecastDay3" class="forecastDay">2023/09/23</h1></td>
+                        <td colspan="2"><h1 id="forecastDay3" class="forecastorpastDay">2023/09/23</h1></td>
                     </tr>
                     <tr>
                         <td>
@@ -225,6 +230,350 @@
                 </table>
               </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="pastWeather">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <table>
+                    <tr>
+                        <td colspan="2"><h1 id="pastDay1" class="forecastorpastDay">2023/09/19</h1></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="sunrise">Sunrise : </h4>
+                        </td>
+                        <td>
+                            <h4 id="sunriseTimePastD1" class="sunriseValue">06:12 AM</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Max Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="maxTempPastD1" class="minmaxTempValue">28.9°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Min Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="minTempPastD1" class="minmaxTempValue">25.8°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="humidity">AVG Humidity : </h4>
+                        </td>
+                        <td>
+                            <h4 id="avgHumidityPastD1" class="humidityValue">84.0</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="condition">Condition : </h4>
+                        </td>
+                        <td>
+                            <h4 id="conditionValuePastD1" class="conditionValue">Party cloudy</h4>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="carousel-item">
+                <table>
+                    <tr>
+                        <td colspan="2"><h1 id="pastDay2" class="forecastorpastDay">2023/09/13</h1></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="sunrise">Sunrise : </h4>
+                        </td>
+                        <td>
+                            <h4 id="sunriseTimePastD2" class="sunriseValue">06:06 AM</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Max Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="maxTempPastD2" class="minmaxTempValue">27.9°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Min Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="minTempPastD2" class="minmaxTempValue">24.8°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="humidity">AVG Humidity : </h4>
+                        </td>
+                        <td>
+                            <h4 id="avgHumidityPastD2" class="humidityValue">87.0</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="condition">Condition : </h4>
+                        </td>
+                        <td>
+                            <h4 id="conditionValuePastD2" class="conditionValue">Party cloudy</h4>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="carousel-item">
+                <table>
+                    <tr>
+                        <td colspan="2"><h1 id="pastDay3" class="forecastorpastDay">2023/09/14</h1></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="sunrise">Sunrise : </h4>
+                        </td>
+                        <td>
+                            <h4 id="sunriseTimePastD3" class="sunriseValue">06:04 AM</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Max Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="maxTempPastD3" class="minmaxTempValue">29.9°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Min Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="minTempPastD3" class="minmaxTempValue">25.8°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="humidity">AVG Humidity : </h4>
+                        </td>
+                        <td>
+                            <h4 id="avgHumidityPastD3" class="humidityValue">86.0</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="condition">Condition : </h4>
+                        </td>
+                        <td>
+                            <h4 id="conditionValuePastD3" class="conditionValue">Party cloudy</h4>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="carousel-item">
+                <table>
+                    <tr>
+                        <td colspan="2"><h1 id="pastDay4" class="forecastorpastDay">2023/09/15</h1></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="sunrise">Sunrise : </h4>
+                        </td>
+                        <td>
+                            <h4 id="sunriseTimePastD4" class="sunriseValue">06:14 AM</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Max Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="maxTempPastD4" class="minmaxTempValue">25.9°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Min Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="minTempPastD4" class="minmaxTempValue">21.8°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="humidity">AVG Humidity : </h4>
+                        </td>
+                        <td>
+                            <h4 id="avgHumidityPastD4" class="humidityValue">86.0</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="condition">Condition : </h4>
+                        </td>
+                        <td>
+                            <h4 id="conditionValuePastD4" class="conditionValue">Party cloudy</h4>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="carousel-item">
+                <table>
+                    <tr>
+                        <td colspan="2"><h1 id="pastDay5" class="forecastorpastDay">2023/09/16</h1></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="sunrise">Sunrise : </h4>
+                        </td>
+                        <td>
+                            <h4 id="sunriseTimePastD5" class="sunriseValue">06:06 AM</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Max Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="maxTempPastD5" class="minmaxTempValue">29.9°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Min Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="minTempPastD5" class="minmaxTempValue">25.8°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="humidity">AVG Humidity : </h4>
+                        </td>
+                        <td>
+                            <h4 id="avgHumidityPastD5" class="humidityValue">85.0</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="condition">Condition : </h4>
+                        </td>
+                        <td>
+                            <h4 id="conditionValuePastD5" class="conditionValue">Party cloudy</h4>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="carousel-item">
+                <table>
+                    <tr>
+                        <td colspan="2"><h1 id="pastDay6" class="forecastorpastDay">2023/09/17</h1></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="sunrise">Sunrise : </h4>
+                        </td>
+                        <td>
+                            <h4 id="sunriseTimePastD6" class="sunriseValue">06:09 AM</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Max Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="maxTempPastD6" class="minmaxTempValue">28.9°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Min Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="minTempPastD6" class="minmaxTempValue">23.8°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="humidity">AVG Humidity : </h4>
+                        </td>
+                        <td>
+                            <h4 id="avgHumidityPastD6" class="humidityValue">86.0</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="condition">Condition : </h4>
+                        </td>
+                        <td>
+                            <h4 id="conditionValuePastD6" class="conditionValue">Party cloudy</h4>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="carousel-item">
+                <table>
+                    <tr>
+                        <td colspan="2"><h1 id="pastDay7" class="forecastorpastDay">2023/09/18</h1></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="sunrise">Sunrise : </h4>
+                        </td>
+                        <td>
+                            <h4 id="sunriseTimePastD7" class="sunriseValue">06:11 AM</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Max Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="maxTempPastD7" class="minmaxTempValue">29.9°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="minmaxTemp">Min Temp : </h4>
+                        </td>
+                        <td>
+                            <h4 id="minTempPastD7" class="minmaxTempValue">26.8°C</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="humidity">AVG Humidity : </h4>
+                        </td>
+                        <td>
+                            <h4 id="avgHumidityPastD7" class="humidityValue">86.0</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 class="condition">Condition : </h4>
+                        </td>
+                        <td>
+                            <h4 id="conditionValuePastD7" class="conditionValue">Party cloudy</h4>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
@@ -234,6 +583,7 @@
               <span class="visually-hidden">Next</span>
             </button>
         </div>
+
     </div>
 
 
