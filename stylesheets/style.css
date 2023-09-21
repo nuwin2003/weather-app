@@ -19,6 +19,12 @@ body{
     border-radius: 20px;
     padding: 40px 35px;
 }
+.alert-set{
+    width: 90%;
+    max-width: 400px;
+    margin: 2px auto 0;
+    display: none;
+}
 table{
     width: max-content;
     position: relative;
