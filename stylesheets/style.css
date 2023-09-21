@@ -7,10 +7,22 @@
 body{
     background-color: #DFE6E9;
 }
+.navbar-edit{
+    font-size:24px;
+    font-weight: bolder;
+}
+.navbar-components{
+    padding-left: 80px;
+}
+.navbar-location{
+    color: #2c3e50;
+    padding-left: 150px;
+    padding-right: 150px;
+}
 .weatherwiseImg{
-    width: 140px;
-    height: 50px;
-    border-radius: 10%;
+    width: 180px;
+    height: 65px;
+    border-radius: 5%;
 }
 .d-flex{
     width: 90%;

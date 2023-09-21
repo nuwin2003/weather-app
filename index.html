@@ -9,24 +9,25 @@
     <title>Weather App</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-edit">
         <div class="container-fluid">
             <img src="assets/weatherwise.jpg" alt="WeatherWise" class="weatherwiseImg">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
+            <h4 class="navbar-location" id="locationOnNavbar">Galle, Southern, Sri Lanka</h4>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item navbar-components">
                 <a class="nav-link" href="#">Maps</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item navbar-components">
                 <a class="nav-link" href="#">What's New</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item navbar-components">
                 <a class="nav-link" href="#">About Us</a>
               </li>
             </ul>
@@ -38,7 +39,7 @@
         <button class="btn btn-outline-success" type="submit" id="btnSearch">Search</button>
     </form>
     <div class="alert alert-danger alert-set" role="alert" id="alertWrongName">
-        A simple danger alert—check it out!
+        Location Invalid! Search a valid location!!
     </div>
 
     <div class="weather">
