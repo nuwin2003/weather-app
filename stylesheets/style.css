@@ -13,6 +13,7 @@ body{
 }
 .navbar-components{
     padding-left: 80px;
+    max-width: max-content;
 }
 .navbar-location{
     color: #2c3e50;
