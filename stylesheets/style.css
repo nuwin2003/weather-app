@@ -87,7 +87,6 @@ table{
     font-weight:bold;
     padding-left: 10px;
 }
-
 .forecastWeather{
     float: left;
     background-color: #34495E;
@@ -99,6 +98,9 @@ table{
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+}
+.forecastConditionImage{
+    margin-right: 30px;
 }
 .pastWeather{
     float: left;
