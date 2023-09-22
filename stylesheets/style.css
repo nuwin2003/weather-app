@@ -54,6 +54,10 @@ table{
     padding: 40px 35px;
     text-align: center;
 }
+.currentWeatherImg{
+    width:max-content;
+    height: 200px;
+}
 .location{
     color: white;
 }
@@ -62,31 +66,11 @@ table{
     font-size: 64px;
     font-weight: bold;
 }
-.condition{
+.condition, .humidity, .windSpeed, .minmaxTemp, .sunrise{
     color: #BDC3C7;
     text-align: right;
 }
-.conditionValue{
-    color: white;
-    font-weight:bold;
-    text-align: left;
-    padding-left: 10px;
-}
-.humidity{
-    color: #BDC3C7;
-    text-align: right;
-}
-.humidityValue{
-    color: white;
-    font-weight: bold;
-    text-align: left;
-    padding-left: 10px;
-}
-.windSpeed{
-    color: #BDC3C7;
-    text-align: right;
-}
-.windSpeedValue{
+.conditionValue, .humidityValue, .windSpeedValue, .minmaxTempValue, .sunriseValue{
     color: white;
     font-weight:bold;
     text-align: left;
@@ -97,26 +81,13 @@ table{
     text-align: center;
     text-decoration: underline;
 }
-.minmaxTemp{
-    color: #BDC3C7;
-    text-align: right;
-}
 .minmaxTempValue{
     color: white;
     text-align: left;
     font-weight:bold;
     padding-left: 10px;
 }
-.sunrise{
-    color: #BDC3C7;
-    text-align: right;
-}
-.sunriseValue{
-    color: white;
-    text-align: left;
-    font-weight:bold;
-    padding-left: 10px;
-}
+
 .forecastWeather{
     float: left;
     background-color: #34495E;
@@ -136,7 +107,7 @@ table{
     width: 50%;
     position: relative;
     max-width: 700px;
-    max-height: 300px;
+    max-height: 275px;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
