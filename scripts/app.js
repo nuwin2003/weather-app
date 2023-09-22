@@ -43,7 +43,6 @@ async function currentWeather(){
         currentWindSpeed.innerHTML = data.current.wind_kph+" km/h";
     }
 }
-
 //set forecast weather
 async function forecastWeather(){
     const response = await fetch(apiURL + `/forecast.json?key=${apiKey}&q=${searchBox.value}&days=4`);
@@ -67,7 +66,17 @@ async function forecastWeather(){
 }
 //set past weather
 async function pastWeather(){
-    const response = await fetch(apiURL+`/history.json?key=${apiKey}&q=${searchBox.value}&dt=2023-09-15&end_dt=2023-09-21`);
+    const currentDate = new Date();
+
+    const end_date = currentDate.getDate()-1;
+    const end_month = currentDate.getMonth() +1;
+    const end_year = currentDate.getFullYear();
+
+    const start_date = currentDate.getDate()-7;
+    const start_month = currentDate.getMonth() +1;
+    const start_year = currentDate.getFullYear();
+
+    const response = await fetch(apiURL+`/history.json?key=${apiKey}&q=${searchBox.value}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
     var data = await response.json();
     console.log(data);
 
