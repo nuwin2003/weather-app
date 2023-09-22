@@ -36,63 +36,68 @@ const avgHumidityForecastD3 = document.getElementById('avgHumidityForecastD3');
 const conditionValueForecastD3 = document.getElementById('conditionValueForecastD3');
 const conditionImageForecastD3 = document.getElementById('conditionImageForecastD3');
 
+//search button event listener
 btnSearch.addEventListener('click', e=>{
     e.preventDefault();
 
     currentWeather();
     forecastWeather();
 
-    console.log(searchBox.value);
-    if(searchBox.value == "Colombo"){//condition needed
-        alertWrongName.style.display = "block";
-    }else{
-        alertWrongName.style.display = "none";
-    }
-
     searchBox.value = "";
 });
 
-
+//set current weather
 async function currentWeather(){
     const response = await fetch(apiURL + `/current.json?key=${apiKey}&q=${searchBox.value}`);
-    var data = await response.json();
-    console.log(data);
+    if(response.status == 400){
+        alertWrongName.style.display = "block";
+    }else{
+        alertWrongName.style.display = "none";
+        var data = await response.json();
+        console.log(data);
 
-    locationOnNavbar.innerText = data.location.name+", "+data.location.region+", "+data.location.country+".";
-    currentWeatherImg.src = data.current.condition.icon;
-    currentLocation.innerText = data.location.name;
-    currentTemp.innerText = data.current.temp_c+"°C";
-    currentCondition.innerHTML = data.current.condition.text;
-    currentHumidity.innerHTML = data.current.humidity+"%";
-    currentWindSpeed.innerHTML = data.current.wind_kph+" km/h";
+        locationOnNavbar.innerHTML = data.location.name+", "+data.location.region+", "+data.location.country+".";
+        currentWeatherImg.src = data.current.condition.icon;
+        currentLocation.innerHTML = data.location.name;
+        currentTemp.innerHTML = data.current.temp_c+"°C";
+        currentCondition.innerHTML = data.current.condition.text;
+        currentHumidity.innerHTML = data.current.humidity+"%";
+        currentWindSpeed.innerHTML = data.current.wind_kph+" km/h";
+    }
 }
 
+//set forecast weather
 async function forecastWeather(){
     const response = await fetch(apiURL + `/forecast.json?key=${apiKey}&q=${searchBox.value}&days=5`);
-    var data = await response.json();
-    console.log(data);
+    if(response.status == 400){
+        alertWrongName.style.display = "block";
+    }else{
+        alertWrongName.style.display = "none";
+        var data = await response.json();
+        console.log(data);
 
-    forecastDay1.innerHTML = data.forecast.forecastday[1].date;
-    sunriseTimeForecastD1.innerHTML = data.forecast.forecastday[1].astro.sunrise;
-    maxTempForecastD1.innerHTML = data.forecast.forecastday[1].day.maxtemp_c+"°C";
-    minTempForecastD1.innerHTML = data.forecast.forecastday[1].day.mintemp_c+"°C";
-    avgHumidityForecastD1.innerHTML = data.forecast.forecastday[1].day.avghumidity+"%";
-    conditionValueForecastD1.innerHTML = data.forecast.forecastday[1].day.condition.text;
-    conditionImageForecastD1.src = data.forecast.forecastday[1].day.condition.icon;
+        forecastDay1.innerHTML = data.forecast.forecastday[1].date;
+        sunriseTimeForecastD1.innerHTML = data.forecast.forecastday[1].astro.sunrise;
+        maxTempForecastD1.innerHTML = data.forecast.forecastday[1].day.maxtemp_c+"°C";
+        minTempForecastD1.innerHTML = data.forecast.forecastday[1].day.mintemp_c+"°C";
+        avgHumidityForecastD1.innerHTML = data.forecast.forecastday[1].day.avghumidity+"%";
+        conditionValueForecastD1.innerHTML = data.forecast.forecastday[1].day.condition.text;
+        conditionImageForecastD1.src = data.forecast.forecastday[1].day.condition.icon;
 
-    forecastDay2.innerHTML = data.forecast.forecastday[2].date;
-    sunriseTimeForecastD2.innerHTML = data.forecast.forecastday[2].astro.sunrise;
-    maxTempForecastD2.innerHTML = data.forecast.forecastday[2].day.maxtemp_c+"°C";
-    minTempForecastD2.innerHTML = data.forecast.forecastday[2].day.mintemp_c+"°C";
-    avgHumidityForecastD2.innerHTML = data.forecast.forecastday[2].day.avghumidity+"%";
-    conditionValueForecastD2.innerHTML = data.forecast.forecastday[2].day.condition.text;
-    conditionImageForecastD2.src = data.forecast.forecastday[2].day.condition.icon;
+        forecastDay2.innerHTML = data.forecast.forecastday[2].date;
+        sunriseTimeForecastD2.innerHTML = data.forecast.forecastday[2].astro.sunrise;
+        maxTempForecastD2.innerHTML = data.forecast.forecastday[2].day.maxtemp_c+"°C";
+        minTempForecastD2.innerHTML = data.forecast.forecastday[2].day.mintemp_c+"°C";
+        avgHumidityForecastD2.innerHTML = data.forecast.forecastday[2].day.avghumidity+"%";
+        conditionValueForecastD2.innerHTML = data.forecast.forecastday[2].day.condition.text;
+        conditionImageForecastD2.src = data.forecast.forecastday[2].day.condition.icon;
 
-    forecastDay3.innerHTML = data.forecast.forecastday[3].date;
-    sunriseTimeForecastD3.innerHTML = data.forecast.forecastday[3].astro.sunrise;
-    maxTempForecastD3.innerHTML = data.forecast.forecastday[3].day.maxtemp_c+"°C";
-    minTempForecastD3.innerHTML = data.forecast.forecastday[3].day.mintemp_c+"°C";
-    avgHumidityForecastD3.innerHTML = data.forecast.forecastday[3].day.avghumidity+"%";
-    conditionValueForecastD3.innerHTML = data.forecast.forecastday[3].day.condition.text;
-    conditionImageForecastD3.src = data.forecast.forecastday[3].day.condition.icon;
+        forecastDay3.innerHTML = data.forecast.forecastday[3].date;
+        sunriseTimeForecastD3.innerHTML = data.forecast.forecastday[3].astro.sunrise;
+        maxTempForecastD3.innerHTML = data.forecast.forecastday[3].day.maxtemp_c+"°C";
+        minTempForecastD3.innerHTML = data.forecast.forecastday[3].day.mintemp_c+"°C";
+        avgHumidityForecastD3.innerHTML = data.forecast.forecastday[3].day.avghumidity+"%";
+        conditionValueForecastD3.innerHTML = data.forecast.forecastday[3].day.condition.text;
+        conditionImageForecastD3.src = data.forecast.forecastday[3].day.condition.icon;
+    }
 }
