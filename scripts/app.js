@@ -18,13 +18,14 @@ navigator.geolocation.getCurrentPosition(
     async function(position){
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        
+
+        //set current weather
         const responseCurrent = await fetch(apiURL + `/current.json?key=${apiKey}&q=${latitude},${longitude}`);
         if(responseCurrent.status == 400){
             
         }else{
             var data = await responseCurrent.json();
-            
+            console.log(data);
             locationOnNavbar.innerHTML = data.location.name+", "+data.location.region+", "+data.location.country+".";
             currentWeatherImg.src = data.current.condition.icon;
             currentLocation.innerHTML = data.location.name;
@@ -33,7 +34,62 @@ navigator.geolocation.getCurrentPosition(
             currentHumidity.innerHTML = data.current.humidity+"%";
             currentWindSpeed.innerHTML = data.current.wind_kph+" km/h";
         }
+        //set forecast weather
+        const responseForecast = await fetch(apiURL + `/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=4`);
+        if(responseForecast.status == 400){
+            
+        }else{
+            var data = await responseForecast.json();
+            console.log(data);
+            
+            for (let index = 1; index < data.forecast.forecastday.length; index++) {
+                document.getElementById(`forecastDay${index}`).innerHTML = data.forecast.forecastday[index].date;
+                document.getElementById(`sunriseTimeForecastD${index}`).innerHTML = data.forecast.forecastday[index].astro.sunrise;
+                document.getElementById(`maxTempForecastD${index}`).innerHTML = data.forecast.forecastday[index].day.maxtemp_c+"°C";
+                document.getElementById(`minTempForecastD${index}`).innerHTML = data.forecast.forecastday[index].day.mintemp_c+"°C";
+                document.getElementById(`avgHumidityForecastD${index}`).innerHTML = data.forecast.forecastday[index].day.avghumidity+"%";
+                document.getElementById(`conditionValueForecastD${index}`).innerHTML = data.forecast.forecastday[index].day.condition.text;
+                document.getElementById(`conditionImageForecastD${index}`).src = data.forecast.forecastday[index].day.condition.icon;
+            }
+        }
+        //set past weather
+        const currentDate = new Date();
+
+        const end_date = currentDate.getDate()-1;
+        const end_month = currentDate.getMonth() +1;
+        const end_year = currentDate.getFullYear();
+
+        const start_date = currentDate.getDate()-7;
+        const start_month = currentDate.getMonth() +1;
+        const start_year = currentDate.getFullYear();
+
+        const response = await fetch(apiURL+`/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
         
+        if(response.status == 400){
+            
+        }else{
+            
+            var data = await response.json();
+            console.log(data);
+
+            pastDay1.innerHTML = data.forecast.forecastday[6].date;
+            sunriseTimePastD1.innerHTML = data.forecast.forecastday[6].astro.sunrise;
+            maxTempPastD1.innerHTML = data.forecast.forecastday[6].day.maxtemp_c+"°C";
+            minTempPastD1.innerHTML = data.forecast.forecastday[6].day.mintemp_c+"°C";
+            avgHumidityPastD1.innerHTML = data.forecast.forecastday[6].day.avghumidity+"%";
+            conditionValuePastD1.innerHTML = data.forecast.forecastday[6].day.condition.text;
+            conditionImagePastD1.src = data.forecast.forecastday[6].day.condition.icon;
+
+            for (let index = 0 , day = 2 ; index < data.forecast.forecastday.length-1; index++ , day++) {
+                document.getElementById(`pastDay${day}`).innerHTML = data.forecast.forecastday[index].date;
+                document.getElementById(`sunriseTimePastD${day}`).innerHTML = data.forecast.forecastday[index].astro.sunrise;
+                document.getElementById(`maxTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.maxtemp_c+"°C";
+                document.getElementById(`minTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.mintemp_c+"°C";
+                document.getElementById(`avgHumidityPastD${day}`).innerHTML = data.forecast.forecastday[index].day.avghumidity+"%";
+                document.getElementById(`conditionValuePastD${day}`).innerHTML = data.forecast.forecastday[index].day.condition.text;
+                document.getElementById(`conditionImagePastD${day}`).src = data.forecast.forecastday[index].day.condition.icon;
+            }
+        }
     }
 )
 
@@ -101,24 +157,30 @@ async function pastWeather(){
     const start_year = currentDate.getFullYear();
 
     const response = await fetch(apiURL+`/history.json?key=${apiKey}&q=${searchBox.value}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
-    var data = await response.json();
-    console.log(data);
+    
+    if(response.status == 400){
+        alertWrongName.style.display = "block";
+    }else{
+        alertWrongName.style.display = "none";
+        var data = await response.json();
+        console.log(data);
 
-    pastDay1.innerHTML = data.forecast.forecastday[6].date;
-    sunriseTimePastD1.innerHTML = data.forecast.forecastday[6].astro.sunrise;
-    maxTempPastD1.innerHTML = data.forecast.forecastday[6].day.maxtemp_c+"°C";
-    minTempPastD1.innerHTML = data.forecast.forecastday[6].day.mintemp_c+"°C";
-    avgHumidityPastD1.innerHTML = data.forecast.forecastday[6].day.avghumidity+"%";
-    conditionValuePastD1.innerHTML = data.forecast.forecastday[6].day.condition.text;
-    conditionImagePastD1.src = data.forecast.forecastday[6].day.condition.icon;
+        pastDay1.innerHTML = data.forecast.forecastday[6].date;
+        sunriseTimePastD1.innerHTML = data.forecast.forecastday[6].astro.sunrise;
+        maxTempPastD1.innerHTML = data.forecast.forecastday[6].day.maxtemp_c+"°C";
+        minTempPastD1.innerHTML = data.forecast.forecastday[6].day.mintemp_c+"°C";
+        avgHumidityPastD1.innerHTML = data.forecast.forecastday[6].day.avghumidity+"%";
+        conditionValuePastD1.innerHTML = data.forecast.forecastday[6].day.condition.text;
+        conditionImagePastD1.src = data.forecast.forecastday[6].day.condition.icon;
 
-    for (let index = 0 , day = 2 ; index < data.forecast.forecastday.length-1; index++ , day++) {
-        document.getElementById(`pastDay${day}`).innerHTML = data.forecast.forecastday[index].date;
-        document.getElementById(`sunriseTimePastD${day}`).innerHTML = data.forecast.forecastday[index].astro.sunrise;
-        document.getElementById(`maxTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.maxtemp_c+"°C";
-        document.getElementById(`minTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.mintemp_c+"°C";
-        document.getElementById(`avgHumidityPastD${day}`).innerHTML = data.forecast.forecastday[index].day.avghumidity+"%";
-        document.getElementById(`conditionValuePastD${day}`).innerHTML = data.forecast.forecastday[index].day.condition.text;
-        document.getElementById(`conditionImagePastD${day}`).src = data.forecast.forecastday[index].day.condition.icon;
+        for (let index = 0 , day = 2 ; index < data.forecast.forecastday.length-1; index++ , day++) {
+            document.getElementById(`pastDay${day}`).innerHTML = data.forecast.forecastday[index].date;
+            document.getElementById(`sunriseTimePastD${day}`).innerHTML = data.forecast.forecastday[index].astro.sunrise;
+            document.getElementById(`maxTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.maxtemp_c+"°C";
+            document.getElementById(`minTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.mintemp_c+"°C";
+            document.getElementById(`avgHumidityPastD${day}`).innerHTML = data.forecast.forecastday[index].day.avghumidity+"%";
+            document.getElementById(`conditionValuePastD${day}`).innerHTML = data.forecast.forecastday[index].day.condition.text;
+            document.getElementById(`conditionImagePastD${day}`).src = data.forecast.forecastday[index].day.condition.icon;
+        }
     }
 }
