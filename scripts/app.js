@@ -13,6 +13,30 @@ const currentCondition = document.getElementById('currentCondition');
 const currentHumidity = document.getElementById('currentHumidity');
 const currentWindSpeed = document.getElementById('currentWindSpeed');
 
+//set default location
+navigator.geolocation.getCurrentPosition(
+    async function(position){
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        
+        const responseCurrent = await fetch(apiURL + `/current.json?key=${apiKey}&q=${latitude},${longitude}`);
+        if(responseCurrent.status == 400){
+            
+        }else{
+            var data = await responseCurrent.json();
+            
+            locationOnNavbar.innerHTML = data.location.name+", "+data.location.region+", "+data.location.country+".";
+            currentWeatherImg.src = data.current.condition.icon;
+            currentLocation.innerHTML = data.location.name;
+            currentTemp.innerHTML = data.current.temp_c+"°C";
+            currentCondition.innerHTML = data.current.condition.text;
+            currentHumidity.innerHTML = data.current.humidity+"%";
+            currentWindSpeed.innerHTML = data.current.wind_kph+" km/h";
+        }
+        
+    }
+)
+
 //search button event listener
 btnSearch.addEventListener('click', e=>{
     e.preventDefault();
