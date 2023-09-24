@@ -5,16 +5,30 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url("../assets/weather-app-background.jpg");
+    background-image: url("../assets/weatherbglight.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 80vh;
     background-position: 80%;
 }
+.theme-btn-position{
+    position: fixed;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.theme-dark{
+    background-image: url("../assets/weather-app-background.jpg");
+}
+.labelDarkMode{
+    color: #BDC3C7;
+}
 .navbar-edit{
     font-size:24px;
     font-weight: bolder;
+    opacity: 0.9;
+    position: sticky;
+    top: 0;
 }
 .navbar-components{
     padding-left: 80px;
@@ -53,8 +67,7 @@ table{
 }
 .weather{
     float: left;
-    background-color:#34495E;
-    background: rgba(5, 5, 5, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
     width: 50%;
     max-width: 700px;
@@ -99,7 +112,6 @@ table{
 }
 .forecastWeather{
     float: left;
-    background-color: #34495E;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
     margin: 10px;
@@ -116,7 +128,6 @@ table{
 }
 .pastWeather{
     float: left;
-    background-color: #34495E;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
     margin: 10px;

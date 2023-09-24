@@ -187,3 +187,20 @@ async function pastWeather(){
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const themeSwitch = document.getElementById('flexSwitchCheckDefault');
+    const body = document.body;
+    const darkModeLabel = document.getElementById('darkModeLabel');
+    const navLink = document.getElementById('nav-link');
+
+    themeSwitch.addEventListener('change',e=>{
+        if(themeSwitch.checked){
+            body.classList.add('theme-dark');
+            darkModeLabel.classList.add('labelDarkMode');
+        }else{
+            body.classList.remove("theme-dark");
+            darkModeLabel.classList.remove('labelDarkMode');
+        }
+    });
+});
