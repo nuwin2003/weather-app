@@ -16,12 +16,20 @@ body{
     position: fixed;
     margin-top: 20px;
     margin-left: 20px;
-}
-.theme-dark{
-    background-image: url("../assets/weather-app-background.jpg");
+    z-index: 1;
 }
 .labelDarkMode{
-    color: #BDC3C7;
+    color: white;
+}
+.form-check-label{
+    font-weight: bolder;
+    font-size: large;
+    max-width: max-content;
+    font-family:'Courier New', Courier, monospace;
+    z-index: 1;
+}
+.theme-dark{
+    background-image: url("../assets/background-dark.jpg");
 }
 .navbar-edit{
     font-size:24px;
@@ -29,6 +37,7 @@ body{
     opacity: 0.9;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 .navbar-components{
     padding-left: 80px;
@@ -40,8 +49,8 @@ body{
     padding-right: 150px;
 }
 .weatherwiseImg{
-    width: 180px;
-    height: 65px;
+    width: 100px;
+    height: 50px;
     border-radius: 5%;
 }
 .d-flex{
@@ -61,7 +70,7 @@ body{
     display: none;
 }
 table{
-    width: max-content;
+    max-width: max-content;
     position: relative;
     margin: 5px auto 0;
 }
@@ -70,12 +79,17 @@ table{
     background: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
     width: 50%;
-    max-width: 700px;
+    max-width: max-content;
+    max-height: max-content;
     position: relative;
     margin: 20px;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+}
+.weather-dark{
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0.8;
 }
 .currentWeatherImg{
     width:max-content;
@@ -99,6 +113,38 @@ table{
     text-align: left;
     padding-left: 10px;
 }
+.weatherCurrent :after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.btn-group{
+    margin: 5%;
+}
+.todayWeather{
+    float: left;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    margin: 20px;
+    width: 50%;
+    height: 600px;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    max-width: max-content;
+    max-height: max-content;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    max-width: max-content;
+}
+.card-img-top{
+    width: max-content;
+}
 .forecastorpastDay{
     color:#d1d8e0;
     text-align: center;
@@ -114,27 +160,27 @@ table{
     float: left;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
-    margin: 10px;
+    margin: 20px;
     width: 50%;
     position: relative;
     max-width: 700px;
-    max-height: 300px;
+    max-height: max-content;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
 }
 .forecastConditionImage{
-    margin-right: 30px;
+    text-align: center;
 }
 .pastWeather{
     float: left;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
-    margin: 10px;
+    margin: 20px;
     width: 50%;
     position: relative;
     max-width: 700px;
-    max-height: 275px;
+    max-height: max-content;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;

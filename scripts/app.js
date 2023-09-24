@@ -101,6 +101,7 @@ btnSearch.addEventListener('click', e=>{
     e.preventDefault();
 
     currentWeather();
+    currentWeatherByHours();
     forecastWeather();
     pastWeather();
 
@@ -124,6 +125,18 @@ async function currentWeather(){
         currentCondition.innerHTML = data.current.condition.text;
         currentHumidity.innerHTML = data.current.humidity+"%";
         currentWindSpeed.innerHTML = data.current.wind_kph+" km/h";
+    }
+}
+//set hour by hour
+async function currentWeatherByHours(){
+    const response = await fetch(apiURL + `/history.json?key=${apiKey}&q=colombo&dt=2023-09-23&dt_end=2023-09-24`);
+    var data = await response.json();
+
+    console.log(data);
+    for (let index = 0; index < 8; index++) {
+        document.getElementById(`morningImage${index+1}`).src = data.forecast.forecastday[0].hour[index].condition.icon;
+        document.getElementById(`morningTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].time;
+        document.getElementById(`morningTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].temp_c+"°C";
     }
 }
 //set forecast weather
@@ -187,12 +200,11 @@ async function pastWeather(){
         }
     }
 }
-
+//set dark mode
 document.addEventListener('DOMContentLoaded', function () {
     const themeSwitch = document.getElementById('flexSwitchCheckDefault');
     const body = document.body;
     const darkModeLabel = document.getElementById('darkModeLabel');
-    const navLink = document.getElementById('nav-link');
 
     themeSwitch.addEventListener('change',e=>{
         if(themeSwitch.checked){

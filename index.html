@@ -49,47 +49,209 @@
         Navigation Problem!! Allow this page to use your navigation!!
     </div>
 
-    <div class="weather" id="currentWeatherDiv">
-        <img src="" alt="condition" id="currentWeatherImg" class="currentWeatherImg">
-        <table>
-            <tr>
-                <td colspan="2">
-                    <h1 class="location" id="currentLocation"></h1>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <p class="temp" id="currentTemp"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 class="condition">Condition :</h3>
-                </td>
-                <td>
-                    <h3 class="conditionValue" id="currentCondition"></h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 class="humidity">Humidity :</h3>
-                </td>
-                <td>
-                    <h3 class="humidityValue" id="currentHumidity"></h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 class="windSpeed">Wind Speed : </h3>
-                </td>
-                <td>
-                    <h3 class="windSpeedValue" id="currentWindSpeed"></h3>
-                </td>
-            </tr>
-
-        </table>
+    <div class="weatherCurrent">
+        <div class="weather">
+            <img src="" alt="condition" id="currentWeatherImg" class="currentWeatherImg">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h1 class="location" id="currentLocation"></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p class="temp" id="currentTemp"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3 class="condition">Condition :</h3>
+                    </td>
+                    <td>
+                        <h3 class="conditionValue" id="currentCondition"></h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3 class="humidity">Humidity :</h3>
+                    </td>
+                    <td>
+                        <h3 class="humidityValue" id="currentHumidity"></h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3 class="windSpeed">Wind Speed : </h3>
+                    </td>
+                    <td>
+                        <h3 class="windSpeedValue" id="currentWindSpeed"></h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="todayWeather">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" id="btnMorning">Morning</button>
+                <button type="button" class="btn btn-outline-primary" id="btnAfternoon">Afternoon</button>
+                <button type="button" class="btn btn-outline-primary" id="btnEvening">Evening</button>
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <table>
+                        <tr>
+                            <td><img src="" class="card-img-top" alt="" id="morningImage1"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="card-title" id="morningTime1"></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="card-text" id="morningTemp1"></p>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <table>
+                        <tr>
+                            <td><img src="" class="card-img-top" alt="" id="morningImage2"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="card-title" id="morningTime2"></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="card-text" id="morningTemp2"></p>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <table>
+                        <tr>
+                            <td><img src="" class="card-img-top" alt="" id="morningImage3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="card-title" id="morningTime3"></h5>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="card-text" id="morningTemp3"></p>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <table>
+                        <tr>
+                            <td><img src="" class="card-img-top" alt="" id="morningImage4"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="card-title" id="morningTime4"></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="card-text" id="morningTemp4"></p>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <table>
+                            <tr>
+                                <td><img src="" class="card-img-top" alt="" id="morningImage5"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="card-title" id="morningTime5"></h5>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="card-text" id="morningTemp5"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                 <div class="col">
+                    <div class="card">
+                        <table>
+                            <tr>
+                                <td><img src="" class="card-img-top" alt="" id="morningImage6"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="card-title" id="morningTime6"></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="card-text" id="morningTemp6"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <table>
+                            <tr>
+                                <td><img src="" class="card-img-top" alt="" id="morningImage7"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="card-title" id="morningTime7"></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="card-text" id="morningTemp7"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <table>
+                            <tr>
+                                <td><img src="" class="card-img-top" alt="" id="morningImage8"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="card-title" id="morningTime8"></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>    
+                                    <p class="card-text" id="morningTemp8"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                  </div>
+                </div>
+        </div>
     </div>
-
+    
     <div class="forecastWeather">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
@@ -99,14 +261,14 @@
             </div>
             <div class="carousel-inner carousel-size">
               <div class="carousel-item active">
-                <table>
-                    <tr>
-                        <td rowspan="7">
-                            <img src="" alt="condition" id="conditionImageForecastD1" class="forecastConditionImage">
-                        </td>
-                    </tr>
+                <table id="forecasttable" class="forecastTable">
                     <tr>
                         <td colspan="2"><h1 id="forecastDay1" class="forecastorpastDay"></h1></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImageForecastD1" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -153,12 +315,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="7">
-                            <img src="" alt="condition" id="conditionImageForecastD2" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="forecastDay2" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="forecastDay2" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImageForecastD2" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -205,12 +367,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="7">
-                            <img src="" alt="condition" id="conditionImageForecastD3" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="forecastDay3" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="forecastDay3" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImageForecastD3" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -272,12 +434,12 @@
               <div class="carousel-item active">
                 <table>
                     <tr>
-                        <td rowspan="8">
-                            <img src="" alt="condition" id="conditionImagePastD1" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="pastDay1" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="pastDay1" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImagePastD1" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2"></td>
@@ -327,12 +489,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="8">
-                            <img src="" alt="condition" id="conditionImagePastD2" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="pastDay2" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="pastDay2" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImagePastD2" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -379,12 +541,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="8">
-                            <img src="" alt="condition" id="conditionImagePastD3" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="pastDay3" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="pastDay3" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImagePastD3" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -431,12 +593,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="8">
-                            <img src="" alt="condition" id="conditionImagePastD4" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="pastDay4" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="pastDay4" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImagePastD4" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -483,12 +645,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="8">
-                            <img src="" alt="condition" id="conditionImagePastD5" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="pastDay5" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="pastDay5" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImagePastD5" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -535,12 +697,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="8">
-                            <img src="" alt="condition" id="conditionImagePastD6" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="pastDay6" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="pastDay6" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImagePastD6" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -587,12 +749,12 @@
               <div class="carousel-item">
                 <table>
                     <tr>
-                        <td rowspan="8">
-                            <img src="" alt="condition" id="conditionImagePastD7" class="forecastConditionImage">
-                        </td>
+                        <td colspan="2"><h1 id="pastDay7" class="forecastorpastDay"></h1></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><h1 id="pastDay7" class="forecastorpastDay"></h1></td>
+                        <td colspan="2">
+                            <img src="" alt="condition" id="conditionImagePastD7" class="forecastConditionImage">
+                        </td>
                     </tr>
                     <tr>
                         <td>
