@@ -4,6 +4,7 @@ const apiURL = "http://api.weatherapi.com/v1";
 const searchBox = document.getElementById('searchText');
 const btnSearch = document.getElementById('btnSearch');
 const alertWrongName = document.getElementById('alertWrongName');
+const alertWrongNavigation = document.getElementById('alertWrongNavigation');
 
 const locationOnNavbar = document.getElementById('locationOnNavbar');
 const currentWeatherImg = document.getElementById('currentWeatherImg');
@@ -22,8 +23,9 @@ navigator.geolocation.getCurrentPosition(
         //set current weather
         const responseCurrent = await fetch(apiURL + `/current.json?key=${apiKey}&q=${latitude},${longitude}`);
         if(responseCurrent.status == 400){
-            
+            alertWrongNavigation.style.display = "block";
         }else{
+            alertWrongNavigation.style.display = "none";
             var data = await responseCurrent.json();
             console.log(data);
             locationOnNavbar.innerHTML = data.location.name+", "+data.location.region+", "+data.location.country+".";
@@ -37,8 +39,9 @@ navigator.geolocation.getCurrentPosition(
         //set forecast weather
         const responseForecast = await fetch(apiURL + `/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=4`);
         if(responseForecast.status == 400){
-            
+            alertWrongNavigation.style.display = "block";
         }else{
+            alertWrongNavigation.style.display = "none";
             var data = await responseForecast.json();
             console.log(data);
             
@@ -66,9 +69,9 @@ navigator.geolocation.getCurrentPosition(
         const response = await fetch(apiURL+`/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
         
         if(response.status == 400){
-            
+            alertWrongNavigation.style.display = "block";
         }else{
-            
+            alertWrongNavigation.style.display = "none";
             var data = await response.json();
             console.log(data);
 
