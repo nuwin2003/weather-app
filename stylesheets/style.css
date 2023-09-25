@@ -13,17 +13,16 @@ body{
     background-position: 80%;
 }
 .theme-btn-position{
+    background-color: #BDC3C7;
+    border-radius: 10%;
     position: fixed;
     margin-top: 20px;
     margin-left: 20px;
     z-index: 1;
 }
-.labelDarkMode{
-    color: white;
-}
 .form-check-label{
     font-weight: bolder;
-    font-size: large;
+    font-size: medium;
     max-width: max-content;
     font-family:'Courier New', Courier, monospace;
     z-index: 1;
@@ -42,7 +41,7 @@ body{
     max-width: max-content;
 }
 .navbar-location{
-    color: #2c3e50;
+    color: rgb(27, 26, 26);
     padding-left: 150px;
     padding-right: 150px;
 }
@@ -124,8 +123,8 @@ table{
     margin-left: 50px;
 }
 .hourly-forecast-header{
-    color:#d1d8e0;
-    margin: 20px;
+    color: white;
+    margin: 15px;
     margin-bottom: 40px;
 }
 .todayWeather{
@@ -147,6 +146,7 @@ table{
     display: flex;
     flex-direction: row;
     max-width: max-content;
+    opacity: 0.9;
 }
 .card-img-top{
     width: max-content;
@@ -196,4 +196,12 @@ table{
     position: relative;
     margin: 5px auto 0;
     text-align: center;
+}
+#map { 
+    width: 1000px;    
+    height: 500px; 
+}
+.map-edit{
+    max-width: max-content;
+    margin-left: 250px;
 }

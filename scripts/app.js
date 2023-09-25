@@ -93,7 +93,6 @@ navigator.geolocation.getCurrentPosition(
                 document.getElementById(`conditionImagePastD${day}`).src = data.forecast.forecastday[index].day.condition.icon;
             }
         }
-
         //set default hour by hour
         const start_date2 = currentDate.getDate();
         const start_month2 = currentDate.getMonth() +1;
@@ -176,9 +175,16 @@ async function currentWeatherByHours(){
         document.getElementById(`morningImage${index+1}`).src = data.forecast.forecastday[0].hour[index].condition.icon;
         document.getElementById(`morningTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].time;
         document.getElementById(`morningTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].temp_c+"°C";
-        document.getElementById(`afternoonImage${index+1}`).src = data.forecast.forecastday[0].hour[index].condition.icon;
-        document.getElementById(`afternoonTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].time;
-        document.getElementById(`afternoonTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].temp_c+"°C";
+    }
+    for (let index = 0, hour = 8; index < 8 || hour <16; index++, hour++) {
+        document.getElementById(`afternoonImage${index+1}`).src = data.forecast.forecastday[0].hour[hour].condition.icon;
+        document.getElementById(`afternoonTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].time;
+        document.getElementById(`afternoonTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].temp_c+"°C";
+    }
+    for (let index = 0, hour = 16; index < 8 || hour <24; index++, hour++) {
+        document.getElementById(`eveningImage${index+1}`).src = data.forecast.forecastday[0].hour[hour].condition.icon;
+        document.getElementById(`eveningTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].time;
+        document.getElementById(`eveningTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].temp_c+"°C";
     }
 }
 //set forecast weather
@@ -245,15 +251,12 @@ async function pastWeather(){
 //set dark mode
 document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
-    const darkModeLabel = document.getElementById('darkModeLabel');
 
     themeSwitch.addEventListener('change',e=>{
         if(themeSwitch.checked){
             body.classList.add('theme-dark');
-            darkModeLabel.classList.add('labelDarkMode');
         }else{
             body.classList.remove("theme-dark");
-            darkModeLabel.classList.remove('labelDarkMode');
         }
     });
 });
