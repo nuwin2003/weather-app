@@ -9,10 +9,10 @@
     <title>Weather App</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-edit">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <img src="assets/weatherwise.jpg" alt="WeatherWise" class="weatherwiseImg">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="assets/weather-app-logo.png" alt="WeatherWise" class="weatherwiseImg">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" autocomplete="off">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,7 +35,7 @@
         </div>
     </nav>
     <div class="form-check form-switch theme-btn-position">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <input class="form-check-input" type="checkbox" checked data-toggle="toggle" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault" id="darkModeLabel">Dark Mode</label>
     </div>
     <form class="d-flex" role="search">
@@ -90,168 +90,489 @@
             </table>
         </div>
         <div class="todayWeather">
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-primary" id="btnMorning">Morning</button>
-                <button type="button" class="btn btn-outline-primary" id="btnAfternoon">Afternoon</button>
-                <button type="button" class="btn btn-outline-primary" id="btnEvening">Evening</button>
+            <h1 class="hourly-forecast-header">Check Hourly Forecast Today</h1>
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                      <div class="col">
+                        <div class="card">
+                          <table>
+                              <tr>
+                                  <td><img src="" class="card-img-top" alt="" id="morningImage1"></td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <h5 class="card-title" id="morningTime1"></h5>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <p class="card-text" id="morningTemp1"></p>
+                                  </td>
+                              </tr>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card">
+                          <table>
+                              <tr>
+                                  <td><img src="" class="card-img-top" alt="" id="morningImage2"></td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <h5 class="card-title" id="morningTime2"></h5>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <p class="card-text" id="morningTemp2"></p>
+                                  </td>
+                              </tr>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card">
+                          <table>
+                              <tr>
+                                  <td><img src="" class="card-img-top" alt="" id="morningImage3"></td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <h5 class="card-title" id="morningTime3"></h5>                                
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <p class="card-text" id="morningTemp3"></p>
+                                  </td>
+                              </tr>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card">
+                          <table>
+                              <tr>
+                                  <td><img src="" class="card-img-top" alt="" id="morningImage4"></td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <h5 class="card-title" id="morningTime4"></h5>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <p class="card-text" id="morningTemp4"></p>
+                                  </td>
+                              </tr>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col">
+                          <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="morningImage5"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="morningTime5"></h5>                                    
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="card-text" id="morningTemp5"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+                       <div class="col">
+                          <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="morningImage6"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="morningTime6"></h5>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="card-text" id="morningTemp6"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="morningImage7"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="morningTime7"></h5>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="card-text" id="morningTemp7"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="morningImage8"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="morningTime8"></h5>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>    
+                                          <p class="card-text" id="morningTemp8"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <table>
+                                    <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="afternoonImage1"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="afternoonTime1"></h5>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <p class="card-text" id="afternoonTemp1"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                  <table>
+                                      <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="afternoonImage2"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="afternoonTime2"></h5>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <p class="card-text" id="afternoonTemp2"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                  <table>
+                                      <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="afternoonImage3"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="afternoonTime3"></h5>                                
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <p class="card-text" id="afternoonTemp3"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                  <table>
+                                      <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="afternoonImage4"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="afternoonTime4"></h5>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <p class="card-text" id="afternoonTemp4"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                                </div>
+                              </div>
+                              <div class="col">
+                                  <div class="card">
+                                      <table>
+                                          <tr>
+                                              <td><img src="" class="card-img-top" alt="" id="afternoonImage5"></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <h5 class="card-title" id="afternoonTime5"></h5>                                    
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="card-text" id="afternoonTemp5"></p>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </div>
+                              </div>
+                               <div class="col">
+                                  <div class="card">
+                                      <table>
+                                          <tr>
+                                              <td><img src="" class="card-img-top" alt="" id="afternoonImage6"></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <h5 class="card-title" id="afternoonTime6"></h5>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="card-text" id="afternoonTemp6"></p>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </div>
+                              </div>
+                              <div class="col">
+                                  <div class="card">
+                                      <table>
+                                          <tr>
+                                              <td><img src="" class="card-img-top" alt="" id="afternoonImage7"></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <h5 class="card-title" id="afternoonTime7"></h5>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="card-text" id="afternoonTemp7"></p>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </div>
+                              </div>
+                              <div class="col">
+                                  <div class="card">
+                                    <table>
+                                        <tr>
+                                              <td><img src="" class="card-img-top" alt="" id="afternoonImage8"></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <h5 class="card-title" id="afternoonTime8"></h5>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>    
+                                                  <p class="card-text" id="afternoonTemp8"></p>
+                                              </td>
+                                          </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <div class="col">
+                            <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="eveningImage1"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="eveningTime1"></h5>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="card-text" id="eveningTemp1"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="eveningImage2"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="eveningTime2"></h5>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="card-text" id="eveningTemp2"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="eveningImage3"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="eveningTime3"></h5>                                
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="card-text" id="eveningTemp3"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="card">
+                              <table>
+                                  <tr>
+                                      <td><img src="" class="card-img-top" alt="" id="eveningImage4"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <h5 class="card-title" id="eveningTime4"></h5>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <p class="card-text" id="eveningTemp4"></p>
+                                      </td>
+                                  </tr>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="col">
+                              <div class="card">
+                                  <table>
+                                      <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="eveningImage5"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="eveningTime5"></h5>                                    
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <p class="card-text" id="eveningTemp5"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                          </div>
+                           <div class="col">
+                              <div class="card">
+                                  <table>
+                                      <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="eveningImage6"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="eveningTime6"></h5>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <p class="card-text" id="eveningTemp6"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                          </div>
+                          <div class="col">
+                              <div class="card">
+                                  <table>
+                                      <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="eveningImage7"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="eveningTime7"></h5>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <p class="card-text" id="eveningTemp7"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                          </div>
+                          <div class="col">
+                              <div class="card">
+                                  <table>
+                                      <tr>
+                                          <td><img src="" class="card-img-top" alt="" id="eveningImage8"></td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <h5 class="card-title" id="eveningTime8"></h5>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>    
+                                              <p class="card-text" id="eveningTemp8"></p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                  <div class="card">
-                    <table>
-                        <tr>
-                            <td><img src="" class="card-img-top" alt="" id="morningImage1"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="card-title" id="morningTime1"></h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="card-text" id="morningTemp1"></p>
-                            </td>
-                        </tr>
-                    </table>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <table>
-                        <tr>
-                            <td><img src="" class="card-img-top" alt="" id="morningImage2"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="card-title" id="morningTime2"></h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="card-text" id="morningTemp2"></p>
-                            </td>
-                        </tr>
-                    </table>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <table>
-                        <tr>
-                            <td><img src="" class="card-img-top" alt="" id="morningImage3"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="card-title" id="morningTime3"></h5>                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="card-text" id="morningTemp3"></p>
-                            </td>
-                        </tr>
-                    </table>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <table>
-                        <tr>
-                            <td><img src="" class="card-img-top" alt="" id="morningImage4"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="card-title" id="morningTime4"></h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="card-text" id="morningTemp4"></p>
-                            </td>
-                        </tr>
-                    </table>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <table>
-                            <tr>
-                                <td><img src="" class="card-img-top" alt="" id="morningImage5"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="card-title" id="morningTime5"></h5>                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="card-text" id="morningTemp5"></p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                 <div class="col">
-                    <div class="card">
-                        <table>
-                            <tr>
-                                <td><img src="" class="card-img-top" alt="" id="morningImage6"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="card-title" id="morningTime6"></h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="card-text" id="morningTemp6"></p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <table>
-                            <tr>
-                                <td><img src="" class="card-img-top" alt="" id="morningImage7"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="card-title" id="morningTime7"></h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="card-text" id="morningTemp7"></p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <table>
-                            <tr>
-                                <td><img src="" class="card-img-top" alt="" id="morningImage8"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="card-title" id="morningTime8"></h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>    
-                                    <p class="card-text" id="morningTemp8"></p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                  </div>
-                </div>
-        </div>
+        </div>    
     </div>
-    
     <div class="forecastWeather">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">

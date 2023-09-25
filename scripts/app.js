@@ -66,13 +66,13 @@ navigator.geolocation.getCurrentPosition(
         const start_month = currentDate.getMonth() +1;
         const start_year = currentDate.getFullYear();
 
-        const response = await fetch(apiURL+`/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
+        const responsePast = await fetch(apiURL+`/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
         
-        if(response.status == 400){
+        if(responsePast.status == 400){
             alertWrongNavigation.style.display = "block";
         }else{
             alertWrongNavigation.style.display = "none";
-            var data = await response.json();
+            var data = await responsePast.json();
             console.log(data);
 
             pastDay1.innerHTML = data.forecast.forecastday[6].date;
@@ -92,6 +92,35 @@ navigator.geolocation.getCurrentPosition(
                 document.getElementById(`conditionValuePastD${day}`).innerHTML = data.forecast.forecastday[index].day.condition.text;
                 document.getElementById(`conditionImagePastD${day}`).src = data.forecast.forecastday[index].day.condition.icon;
             }
+        }
+
+        //set default hour by hour
+        const start_date2 = currentDate.getDate();
+        const start_month2 = currentDate.getMonth() +1;
+        const start_year2 = currentDate.getFullYear();
+        
+        const end_date2 = currentDate.getDate() +1;
+        const end_month2 = currentDate.getMonth() +1;
+        const end_year2 = currentDate.getFullYear();
+        
+        const response = await fetch(apiURL + `/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_year2}-${start_month2}-${start_date2}&dt_end=${end_year2}-${end_month2}-${end_date2}`);
+        var data = await response.json();
+        
+        console.log(data);
+        for (let index = 0; index < 8; index++) {
+            document.getElementById(`morningImage${index+1}`).src = data.forecast.forecastday[0].hour[index].condition.icon;
+            document.getElementById(`morningTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].time;
+            document.getElementById(`morningTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].temp_c+"°C";
+        }
+        for (let index = 0, hour = 8; index < 8 || hour <16; index++, hour++) {
+            document.getElementById(`afternoonImage${index+1}`).src = data.forecast.forecastday[0].hour[hour].condition.icon;
+            document.getElementById(`afternoonTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].time;
+            document.getElementById(`afternoonTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].temp_c+"°C";
+        }
+        for (let index = 0, hour = 16; index < 8 || hour <24; index++, hour++) {
+            document.getElementById(`eveningImage${index+1}`).src = data.forecast.forecastday[0].hour[hour].condition.icon;
+            document.getElementById(`eveningTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].time;
+            document.getElementById(`eveningTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[hour].temp_c+"°C";
         }
     }
 )
@@ -129,14 +158,27 @@ async function currentWeather(){
 }
 //set hour by hour
 async function currentWeatherByHours(){
-    const response = await fetch(apiURL + `/history.json?key=${apiKey}&q=colombo&dt=2023-09-23&dt_end=2023-09-24`);
+    const currentDate = new Date();
+
+    const start_date = currentDate.getDate();
+    const start_month = currentDate.getMonth() +1;
+    const start_year = currentDate.getFullYear();
+
+    const end_date = currentDate.getDate() +1;
+    const end_month = currentDate.getMonth() +1;
+    const end_year = currentDate.getFullYear();
+
+    const response = await fetch(apiURL + `/history.json?key=${apiKey}&q=${searchBox.value}&dt=${start_year}-${start_month}-${start_date}&dt_end=${end_year}-${end_month}-${end_date}`);
     var data = await response.json();
 
     console.log(data);
-    for (let index = 0; index < 8; index++) {
+    for (let index = 0; index < 16; index++) {
         document.getElementById(`morningImage${index+1}`).src = data.forecast.forecastday[0].hour[index].condition.icon;
         document.getElementById(`morningTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].time;
         document.getElementById(`morningTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].temp_c+"°C";
+        document.getElementById(`afternoonImage${index+1}`).src = data.forecast.forecastday[0].hour[index].condition.icon;
+        document.getElementById(`afternoonTime${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].time;
+        document.getElementById(`afternoonTemp${index+1}`).innerHTML = data.forecast.forecastday[0].hour[index].temp_c+"°C";
     }
 }
 //set forecast weather
@@ -202,7 +244,6 @@ async function pastWeather(){
 }
 //set dark mode
 document.addEventListener('DOMContentLoaded', function () {
-    const themeSwitch = document.getElementById('flexSwitchCheckDefault');
     const body = document.body;
     const darkModeLabel = document.getElementById('darkModeLabel');
 
@@ -216,3 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+const themeSwitch = document.getElementById('flexSwitchCheckDefault');
+themeSwitch.checked = false;

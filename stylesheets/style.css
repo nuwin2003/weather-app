@@ -31,10 +31,8 @@ body{
 .theme-dark{
     background-image: url("../assets/background-dark.jpg");
 }
-.navbar-edit{
-    font-size:24px;
-    font-weight: bolder;
-    opacity: 0.9;
+.navbar{
+    opacity: 0.95;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -48,8 +46,12 @@ body{
     padding-left: 150px;
     padding-right: 150px;
 }
+.nav-link{
+    font-weight: bolder;
+    max-width: max-content;
+}
 .weatherwiseImg{
-    width: 100px;
+    width: 150px;
     height: 50px;
     border-radius: 5%;
 }
@@ -93,7 +95,7 @@ table{
 }
 .currentWeatherImg{
     width:max-content;
-    height: 200px;
+    height: 80px;
 }
 .location{
     color: white;
@@ -118,21 +120,25 @@ table{
     display: table;
     clear: both;
 }
-.btn-group{
-    margin: 5%;
+.weatherCurrent{
+    margin-left: 50px;
+}
+.hourly-forecast-header{
+    color:#d1d8e0;
+    margin: 20px;
+    margin-bottom: 40px;
 }
 .todayWeather{
     float: left;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
     margin: 20px;
-    width: 50%;
-    height: 600px;
+    width: 60%;
+    max-height: max-content;
     display:flex;
     flex-direction: column;
     position: relative;
     max-width: max-content;
-    max-height: max-content;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
