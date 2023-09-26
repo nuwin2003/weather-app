@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url("../assets/weatherbglight.jpg");
+    background-image: url("../assets/background-light.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -204,4 +204,39 @@ table{
 .map-edit{
     max-width: max-content;
     margin-left: 250px;
+}
+
+
+@media (max-width : 426px) {
+    .weatherCurrent {
+        margin-left: 20px;
+    }
+    .weather{
+        margin-left: 30px;
+        width: 85%;
+        padding: 20px 20px;
+    }
+    .todayWeather{
+        width: 90%;
+        padding: 25px 28px;
+    }
+    .carousel-set{
+        margin-left:70px;
+    }
+    .hourly-forecast-header{
+        font-size: 24px;
+    }
+    .forecastWeather{
+        width: 90%;
+    }
+    .pastWeather{
+        width: 90%;
+    }
+    #map{
+        width: 500px;
+        height: 250px;
+    }
+    .map-edit{
+        margin-left: 10px;
+    }
 }

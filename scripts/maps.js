@@ -32,26 +32,21 @@ function error(error){
 
 //set location for the searched location
 btnSearch.addEventListener('click',e=>{
+    
     searchedWeatherMap();
 
-    searchBox.value = "";
 });
 
 async function searchedWeatherMap(){
     const response = await fetch(apiURL + `/current.json?key=${apiKey}&q=${searchBox.value}`);
-    if(response.status == 400){
-        alertWrongName.style.display = "block";
-    }else{
-        alertWrongName.style.display = "none";
-        var data = await response.json();
-        console.log(data);
+    var data = await response.json();
+    console.log(data);
 
-        const lat = data.location.lat;
-        const lan = data.location.lon;
+    const lat = data.location.lat;
+    const lan = data.location.lon;
 
-        L.marker([lat, lan]).addTo(map);
-        map.setView([lat,lan],10);
-    }
+    L.marker([lat, lan]).addTo(map);
+    map.setView([lat,lan],10);
 }
 
 
