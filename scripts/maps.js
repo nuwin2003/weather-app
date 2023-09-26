@@ -6,7 +6,7 @@ const btnSearch = document.getElementById('btnSearch');
 
 const alertWrongName = document.getElementById('alertWrongName');
 const alertWrongNavigation = document.getElementById('alertWrongNavigation');
-
+const locationOnNavbar = document.getElementById('locationOnNavbar');
 
 var map = L.map('map').setView([7.8731, 80.7718], 8);
 
@@ -39,14 +39,19 @@ btnSearch.addEventListener('click',e=>{
 
 async function searchedWeatherMap(){
     const response = await fetch(apiURL + `/current.json?key=${apiKey}&q=${searchBox.value}`);
-    var data = await response.json();
-    console.log(data);
+    if(response.status == 400){
+        alertWrongName.style.display = "block";
+    }else{
+        alertWrongName.style.display = "none";
+        var data = await response.json();
+        console.log(data);
+        //locationOnNavbar.innerHTML = 
+        const lat = data.location.lat;
+        const lan = data.location.lon;
 
-    const lat = data.location.lat;
-    const lan = data.location.lon;
-
-    L.marker([lat, lan]).addTo(map);
-    map.setView([lat,lan],10);
+        L.marker([lat, lan]).addTo(map);
+        map.setView([lat,lan],10);
+    }
 }
 
 

@@ -5,12 +5,30 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url("../assets/background-light.jpg");
+    /* background-image: url("../assets/background-light.jpg"); */
+    background-color: rgb(12, 7, 34);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 80vh;
     background-position: 80%;
+}
+
+/* theme styles */
+.btn-dark{
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.btn-light{
+    position: fixed;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.btn-info{
+    position: fixed;
+    margin-top: 90px;
+    margin-left: 10px;
 }
 .theme-btn-position{
     background-color: #BDC3C7;
@@ -27,9 +45,28 @@ body{
     font-family:'Courier New', Courier, monospace;
     z-index: 1;
 }
-.theme-dark{
-    background-image: url("../assets/background-dark.jpg");
+.themes{
+    margin-left: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 40px;
+    border-radius: 50%;
 }
+.theme-btn{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+.background-light{
+    /* background-image: url("../assets/pexels-pixabay-66284.jpg"); */
+    background-color: #95a5a6;
+}
+.background-dark{
+    background-color: rgb(12, 7, 34);
+}
+
+/* navbar styles */
 .navbar{
     opacity: 0.95;
     position: sticky;
@@ -41,7 +78,7 @@ body{
     max-width: max-content;
 }
 .navbar-location{
-    color: rgb(27, 26, 26);
+    color: rgb(221, 214, 214);
     padding-left: 150px;
     padding-right: 150px;
 }
@@ -51,9 +88,11 @@ body{
 }
 .weatherwiseImg{
     width: 150px;
-    height: 50px;
+    height: 60px;
     border-radius: 5%;
 }
+
+/* searchbox styles */
 .d-flex{
     width: 90%;
     max-width: 500px;
@@ -64,12 +103,16 @@ body{
 .btn-success-edit{
     background-color:rgb(43, 36, 36);
 }
+
+/* alert styles */
 .alert-set{
     width: 90%;
     max-width: 400px;
     margin: 2px auto 0;
     display: none;
 }
+
+/* current, forecast, past weather styles */
 table{
     max-width: max-content;
     position: relative;
@@ -142,6 +185,8 @@ table{
     padding: 40px 35px;
     text-align: center;
 }
+
+/* card styles */
 .card{
     display: flex;
     flex-direction: row;
@@ -151,6 +196,8 @@ table{
 .card-img-top{
     width: max-content;
 }
+
+/* forecast and past styles */
 .forecastorpastDay{
     color:#d1d8e0;
     text-align: center;
@@ -197,6 +244,8 @@ table{
     margin: 5px auto 0;
     text-align: center;
 }
+
+/* map styles */
 #map { 
     width: 1000px;    
     height: 500px; 
@@ -206,6 +255,7 @@ table{
     margin-left: 250px;
 }
 
+/* media queries for tablets */
 @media (max-width : 769px) {
     .weather{
         margin-left: 150px;
@@ -225,6 +275,7 @@ table{
     }
 }
 
+/* media queries for mobile phones */
 @media (max-width : 426px) {
     .weatherCurrent {
         margin-left: 20px;
@@ -245,9 +296,11 @@ table{
         font-size: 24px;
     }
     .forecastWeather{
+        margin-left: 20px;
         width: 90%;
     }
     .pastWeather{
+        margin-left: 20px;
         width: 90%;
     }
     #map{
