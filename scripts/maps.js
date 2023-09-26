@@ -56,16 +56,15 @@ async function searchedWeatherMap(){
 
 
 //set dark mode
-document.addEventListener('DOMContentLoaded', function () {
-    const body = document.body;
-    const themeSwitch = document.getElementById('flexSwitchCheckDefault');
-    themeSwitch.addEventListener('change',e=>{
-        if(themeSwitch.checked){
-            body.classList.add('theme-dark');
-        }else{
-            body.classList.remove("theme-dark");
-        }
-    });
-});
-const themeSwitch = document.getElementById('flexSwitchCheckDefault');
-themeSwitch.checked = false;
+const body = document.body;
+const btnThemeLight = document.getElementById('theme-btn-light');
+const btnThemeDark = document.getElementById('theme-btn-dark');
+
+btnThemeLight.addEventListener('click', ()=>{
+    body.classList.remove('background-dark');
+    body.classList.add('background-light');
+})
+btnThemeDark.addEventListener('click', ()=>{
+    body.classList.remove('background-light');
+    body.classList.add('background-dark');
+})

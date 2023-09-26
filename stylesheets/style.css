@@ -273,6 +273,14 @@ table{
         margin-left: 80px;
         width: 80%;
     }
+    #map { 
+        width: 600px;    
+        height: 400px; 
+    }
+    .map-edit{
+        max-width: max-content;
+        margin-left: 100px;
+    }
 }
 
 /* media queries for mobile phones */
@@ -304,10 +312,11 @@ table{
         width: 90%;
     }
     #map{
-        width: 500px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
     }
     .map-edit{
-        margin-left: 10px;
+        max-width: max-content;
+        margin-left: 70px;
     }
 }
