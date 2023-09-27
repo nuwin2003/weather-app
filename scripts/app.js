@@ -1,5 +1,5 @@
 const apiKey = "831ec6a48d0f49b1b7a155036231909";
-const apiURL = "http://api.weatherapi.com/v1";
+const apiURL = "https://api.weatherapi.com/v1";
 
 const searchBox = document.getElementById('searchText');
 const btnSearch = document.getElementById('btnSearch');
