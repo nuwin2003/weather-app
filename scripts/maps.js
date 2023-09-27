@@ -17,21 +17,32 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 navigator.geolocation.watchPosition(success , error);
 
+let marker;
+let circle;
+
 function success(pos){
-    const lat = pos.coords.latitude;
-    const lan = pos.coords.longitude;
+    const latitude = pos.coords.latitude;
+    const longitude = pos.coords.longitude;
     const accuracy = pos.coords.accuracy;
 
-    L.marker([lat, lan]).addTo(map);
-    L.circle([lat, lan], {radius : accuracy}).addTo(map);
-}
+    if(marker){
+        map.removeLayer(marker);
+        map.removeLayer(circle);
+    }
 
+    marker = L.marker([latitude, longitude]).addTo(map);
+    circle = L.circle([latitude, longitude], {radius : accuracy}).addTo(map);
+
+    map.fitBounds(circle.getBounds());
+
+    map.setView([latitude,longitude]);
+}
 function error(error){
-    alert("please allow your location address");
+    alertWrongNavigation.style.display = "block";
 }
 
 //set location for the searched location
-btnSearch.addEventListener('click',e=>{
+btnSearch.addEventListener('click', ()=>{
     
     searchedWeatherMap();
 
@@ -46,11 +57,12 @@ async function searchedWeatherMap(){
         var data = await response.json();
         console.log(data);
 
-        const lat = data.location.lat;
-        const lan = data.location.lon;
+        locationOnNavbar.innerHTML = data.location.name+", "+data.location.region+", "+data.location.country+".";
+        const latitude = data.location.lat;
+        const longitude = data.location.lon;
 
-        L.marker([lat, lan]).addTo(map);
-        map.setView([lat,lan],10);
+        L.marker([latitude, longitude]).addTo(map);
+        L.circle([latitude, longitude],5).addTo(map);
     }
 }
 
