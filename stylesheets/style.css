@@ -180,6 +180,9 @@ table{
     text-align: center;
     text-decoration: underline;
 }
+.topics{
+    color: #dfe6e9;
+}
 .minmaxTempValue{
     color: white;
     text-align: left;
@@ -310,6 +313,14 @@ table{
     .todayWeather {
         margin: 10px;
     }
+    #map{
+        width: 280px;
+        height: 300px;
+    }
+    .map-edit{
+        max-width: max-content;
+        margin-left: 40px;
+    }
 }
 
 @media (max-width: 321px){
@@ -323,6 +334,14 @@ table{
     }
     .todayWeather {
         margin: 8px;
+    }
+    #map{
+        width: 250px;
+        height: 300px;
+    }
+    .map-edit{
+        max-width: max-content;
+        margin-left: 30px;
     }
 }
 
