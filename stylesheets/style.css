@@ -115,7 +115,6 @@ table{
 .weather{
     float: left;
     background: rgba(0, 0, 0, 0.5);
-    opacity: 0.8;
     width: 50%;
     max-width: max-content;
     max-height: max-content;
@@ -163,7 +162,6 @@ table{
 .todayWeather{
     float: left;
     background: rgba(0, 0, 0, 0.5);
-    opacity: 0.8;
     margin: 20px;
     width: 60%;
     max-height: max-content;
@@ -205,7 +203,6 @@ table{
 .forecastWeather{
     float: left;
     background: rgba(0, 0, 0, 0.5);
-    opacity: 0.8;
     margin: 20px;
     width: 50%;
     position: relative;
@@ -221,7 +218,6 @@ table{
 .pastWeather{
     float: left;
     background: rgba(0, 0, 0, 0.5);
-    opacity: 0.8;
     margin: 20px;
     width: 50%;
     position: relative;
