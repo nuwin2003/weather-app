@@ -5,6 +5,7 @@ const searchBox = document.getElementById('searchText');
 const btnSearch = document.getElementById('btnSearch');
 const alertWrongName = document.getElementById('alertWrongName');
 const alertWrongNavigation = document.getElementById('alertWrongNavigation');
+const localtime = document.getElementById('localTime');
 
 const locationOnNavbar = document.getElementById('locationOnNavbar');
 const currentWeatherImg = document.getElementById('currentWeatherImg');
@@ -249,6 +250,28 @@ async function pastWeather(){
     }
 }
 
+//set time
+function realtimeClock(){
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+
+    var ampm = (hours < 12) ? "AM" : "PM";
+
+    hours = (hours < 12) ? hours - 12 : hours;
+
+    hours = ("0" + hours).slice(-2);
+    minutes = ("0" + minutes).slice(-2);
+    seconds = ("0" + seconds).slice(-2);
+
+    localtime.innerHTML = hours + ":" + minutes + ":" + seconds + " " +ampm;
+
+    var timeOut = setTimeout(realtimeClock, 500);
+}
+
+realtimeClock();
+
 //set dark mode
 const body = document.body;
 const btnThemeLight = document.getElementById('theme-btn-light');
@@ -257,9 +280,11 @@ const btnThemeDark = document.getElementById('theme-btn-dark');
 btnThemeLight.addEventListener('click', ()=>{
     body.classList.remove('background-dark');
     body.classList.add('background-light');
+    localtime.classList.add('localTime-dark');
 })
 btnThemeDark.addEventListener('click', ()=>{
     body.classList.remove('background-light');
     body.classList.add('background-dark');
+    localtime.classList.remove('localTime-dark');
 })
 
