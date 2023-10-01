@@ -59,15 +59,12 @@ navigator.geolocation.getCurrentPosition(
         //set past weather
         const currentDate = new Date();
 
-        const end_date = currentDate.getDate()-1;
-        const end_month = currentDate.getMonth() +1;
-        const end_year = currentDate.getFullYear();
+        const end_date = currentDate.toISOString().slice(0,10);
+        currentDate.setDate(currentDate.getDate() -7);
 
-        const start_date = currentDate.getDate()-7;
-        const start_month = currentDate.getMonth() +1;
-        const start_year = currentDate.getFullYear();
-
-        const responsePast = await fetch(apiURL+`/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
+        const start_date = currentDate.toISOString().slice(0,10);
+        
+        const responsePast = await fetch(apiURL+`/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_date}&end_dt=${end_date}`);
         
         if(responsePast.status == 400){
             alertWrongNavigation.style.display = "block";
@@ -84,7 +81,7 @@ navigator.geolocation.getCurrentPosition(
             conditionValuePastD1.innerHTML = data.forecast.forecastday[6].day.condition.text;
             conditionImagePastD1.src = data.forecast.forecastday[6].day.condition.icon;
 
-            for (let index = 0 , day = 2 ; index < data.forecast.forecastday.length-1; index++ , day++) {
+            for (let index = 0 , day = 2 ; index < data.forecast.forecastday.length-2; index++ , day++) {
                 document.getElementById(`pastDay${day}`).innerHTML = data.forecast.forecastday[index].date;
                 document.getElementById(`sunriseTimePastD${day}`).innerHTML = data.forecast.forecastday[index].astro.sunrise;
                 document.getElementById(`maxTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.maxtemp_c+"°C";
@@ -213,21 +210,18 @@ async function forecastWeather(){
 async function pastWeather(){
     const currentDate = new Date();
 
-    const end_date = currentDate.getDate()-1;
-    const end_month = currentDate.getMonth() +1;
-    const end_year = currentDate.getFullYear();
+    const end_date = currentDate.toISOString().slice(0,10);
+    currentDate.setDate(currentDate.getDate() -7);
 
-    const start_date = currentDate.getDate()-7;
-    const start_month = currentDate.getMonth() +1;
-    const start_year = currentDate.getFullYear();
-
-    const response = await fetch(apiURL+`/history.json?key=${apiKey}&q=${searchBox.value}&dt=${start_year}-${start_month}-${start_date}&end_dt=${end_year}-${end_month}-${end_date}`);
-    
-    if(response.status == 400){
-        alertWrongName.style.display = "block";
+    const start_date = currentDate.toISOString().slice(0,10);
+        
+    const responsePast = await fetch(apiURL+`/history.json?key=${apiKey}&q=${latitude},${longitude}&dt=${start_date}&end_dt=${end_date}`);
+        
+    if(responsePast.status == 400){
+        alertWrongNavigation.style.display = "block";
     }else{
-        alertWrongName.style.display = "none";
-        var data = await response.json();
+        alertWrongNavigation.style.display = "none";
+        var data = await responsePast.json();
         console.log(data);
 
         pastDay1.innerHTML = data.forecast.forecastday[6].date;
@@ -238,7 +232,7 @@ async function pastWeather(){
         conditionValuePastD1.innerHTML = data.forecast.forecastday[6].day.condition.text;
         conditionImagePastD1.src = data.forecast.forecastday[6].day.condition.icon;
 
-        for (let index = 0 , day = 2 ; index < data.forecast.forecastday.length-1; index++ , day++) {
+        for (let index = 0 , day = 2 ; index < data.forecast.forecastday.length-2; index++ , day++) {
             document.getElementById(`pastDay${day}`).innerHTML = data.forecast.forecastday[index].date;
             document.getElementById(`sunriseTimePastD${day}`).innerHTML = data.forecast.forecastday[index].astro.sunrise;
             document.getElementById(`maxTempPastD${day}`).innerHTML = data.forecast.forecastday[index].day.maxtemp_c+"°C";
